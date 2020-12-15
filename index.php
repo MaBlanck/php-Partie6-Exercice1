@@ -9,10 +9,17 @@
 
 <body>
     <h1>Exercice 1 Partie 6</h1>
-    <?php
-    if (isset($_GET['firstname']) AND isset($_GET['lastname'])): ?>
-    <p><?= $_GET['firstname'] . ' ' . $_GET['lastname']; ?></p>
-    <?php endif ?> 
+    <?php if (!isset($_GET['firstname'])) : ?>
+        <p> Votre prénom est manquant</p>
+    <?php endif; ?>
+    <?php if (!isset($_GET['lastname'])) : ?>
+        <p> Votre nom est manquant</p>
+    <?php endif; ?>
+    <?php if (isset($_GET['firstname']) && isset($_GET['lastname'])) : ?>
+        <p> Bonjour <?= $_GET['firstname']; ?> <?= $_GET['lastname']; ?></p>
+    <?php endif; ?>
+    <a href="index.php?lastname=Nemare&firstname=Jean">Cliquez</a>
+
 </body>
 
 </html>
